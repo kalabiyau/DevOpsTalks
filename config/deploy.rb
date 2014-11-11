@@ -1,7 +1,7 @@
 lock '3.2.1'
 
 set :application, 'susecon14'
-set :repo_url, 'git@example.com:me/my_repo.git'
+set :repo_url, 'https://github.com/kalabiyau/SUSECon14.git'
 set :deploy_to, '/home/susecon14/apps'
 
 namespace :deploy do

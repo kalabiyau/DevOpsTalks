@@ -11,3 +11,9 @@
       authorized_key:
         key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDO91Kfgf4RTv2RR0jSfWGmTX3QEVYeTHW6S6B1eBnsP8VwOSf3O0in4IaXL0QxtQjOzKnR8nhpLzCd38LCYspqS2/0hebSUPhlNWKohATK8fcS10oQGLeh1iDHHu8/TUGLxdZk1+ttY26SgEwUYWmmZnMFlwqKNfyb1I1H5MoOfvIN6JZu6R8ENXISnvPRDY/1wVoaLL18w7mggtMJBm3SxE6ZJcRjHLR8TtCtIa+S/yWu4lxnekMkFRVbca9j2RvSzT7FshyBJdu6z+5DDAECbEHzMu0L6Fl15hJE6FLAO5yMN6s8l4GBVIy/h+IZZsZG2nCL3F/nd3mqZROmSHPV kalabiyau@kalabiyau
         user: susecon14
+    - name: Install required packages
+      zypper: name={{item}} state=present
+      with_items:
+        - git-core
+        - ruby2.1-devel
+        - ruby2.1-rubygem-bundler
