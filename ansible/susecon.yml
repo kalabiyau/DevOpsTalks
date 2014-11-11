@@ -1,6 +1,6 @@
 ---
-- name: Prepare infrastructure for SUSECon showcase
-  hosts: webservers
+- name: Prepare all servers
+  hosts: all
   sudo: yes
   tasks:
     - name: Add Users
@@ -11,6 +11,11 @@
       authorized_key:
         key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDO91Kfgf4RTv2RR0jSfWGmTX3QEVYeTHW6S6B1eBnsP8VwOSf3O0in4IaXL0QxtQjOzKnR8nhpLzCd38LCYspqS2/0hebSUPhlNWKohATK8fcS10oQGLeh1iDHHu8/TUGLxdZk1+ttY26SgEwUYWmmZnMFlwqKNfyb1I1H5MoOfvIN6JZu6R8ENXISnvPRDY/1wVoaLL18w7mggtMJBm3SxE6ZJcRjHLR8TtCtIa+S/yWu4lxnekMkFRVbca9j2RvSzT7FshyBJdu6z+5DDAECbEHzMu0L6Fl15hJE6FLAO5yMN6s8l4GBVIy/h+IZZsZG2nCL3F/nd3mqZROmSHPV kalabiyau@kalabiyau
         user: susecon14
+
+- name: Prepare webservers
+  hosts: webservers
+  sudo: yes
+  tasks:
     - name: Install required packages
       zypper: name={{item}} state=present
       with_items:
@@ -19,3 +24,38 @@
         - gcc-c++
         - ruby2.1-devel
         - ruby2.1-rubygem-bundler
+
+- name: Prepare balancer
+  hosts: balancers
+  sudo: yes
+  tasks:
+    - name: Add repositories
+      zypper_repository:
+        name: nginx_repo
+        repo: http://download.opensuse.org/repositories/home:/kalabiyau:/web/SLE_12
+        state: present
+        disable_gpg_check: yes
+    - name: Install required packages
+      zypper: name={{item}} state=present
+      with_items:
+        - nginx
+    - name: Populate template with proper values
+      template:
+        src: templates/nginx.conf.j2
+        dest: /etc/nginx/nginx.conf
+        owner: root
+        group: root
+        mode: 0644
+      notify:
+        - restart nginx
+    - name: Enable and start nginx
+      service:
+        name: nginx
+        enabled: true
+        state: started
+  handlers:
+    - name: restart nginx
+      service:
+        name: nginx
+        state: restarted
+

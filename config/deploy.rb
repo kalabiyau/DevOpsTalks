@@ -4,6 +4,7 @@ set :application, 'susecon14'
 set :repo_url, 'https://github.com/kalabiyau/SUSECon14.git'
 set :deploy_to, '/home/susecon14/apps'
 set :linked_dirs, %w{ tmp/pids tmp/sockets log }
+set :log_level, :info
 
 namespace :deploy do
 
