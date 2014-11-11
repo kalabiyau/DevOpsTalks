@@ -10,8 +10,8 @@ namespace :deploy do
   desc 'Restart application'
   task :restart do
     on roles(:web), in: :sequence, wait: 5 do
-      execute 'bundle exec thin -C config/thin.yml stop'
-      execute 'bundle exec thin -C config/thin.yml start'
+      execute "cd #{release_path} && bundle exec thin -C config/thin.yml stop"
+      execute "cd #{release_path} && bundle exec thin -C config/thin.yml start"
     end
   end
 
