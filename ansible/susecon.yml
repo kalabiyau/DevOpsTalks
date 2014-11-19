@@ -13,7 +13,7 @@
         user: susecon14
 
 - name: Prepare webservers
-  hosts: webservers
+  hosts: tag_Name_webserver
   sudo: yes
   tasks:
     - name: Install required packages
@@ -26,7 +26,7 @@
         - ruby2.1-rubygem-bundler
 
 - name: Prepare balancer
-  hosts: balancers
+  hosts: tag_Name_balancer
   sudo: yes
   tasks:
     - name: Add repositories

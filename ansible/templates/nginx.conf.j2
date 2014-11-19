@@ -20,7 +20,7 @@ http {
     gzip  on;
 
     upstream susecon_app {
-            {% for host in groups["webservers"] %}
+            {% for host in groups["tag_Name_webserver"] %}
             server {{ host }}:3000;
             {% endfor %}
     }
