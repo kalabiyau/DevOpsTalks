@@ -4,5 +4,5 @@ ansible_web_servers.split.each do |ansible_server|
 end
 
 set :ssh_options, {
-   keys: %w(/home/kalabiyau/.ssh/achernikov_virginia.pem)
+   keys: %w(/home/achernikov/.ssh/id_rsa)
 }
