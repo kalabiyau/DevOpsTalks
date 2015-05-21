@@ -5,12 +5,12 @@
   tasks:
     - name: Add Users
       user:
-        name: susecon14
-        comment: susecon14
+        name: devops
+        comment: devops
     - name: Populate Authorized keys
       authorized_key:
-        key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDO91Kfgf4RTv2RR0jSfWGmTX3QEVYeTHW6S6B1eBnsP8VwOSf3O0in4IaXL0QxtQjOzKnR8nhpLzCd38LCYspqS2/0hebSUPhlNWKohATK8fcS10oQGLeh1iDHHu8/TUGLxdZk1+ttY26SgEwUYWmmZnMFlwqKNfyb1I1H5MoOfvIN6JZu6R8ENXISnvPRDY/1wVoaLL18w7mggtMJBm3SxE6ZJcRjHLR8TtCtIa+S/yWu4lxnekMkFRVbca9j2RvSzT7FshyBJdu6z+5DDAECbEHzMu0L6Fl15hJE6FLAO5yMN6s8l4GBVIy/h+IZZsZG2nCL3F/nd3mqZROmSHPV kalabiyau@kalabiyau
-        user: susecon14
+        key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDTRnN+2z/vbTGbl+UERQoByuvZBpPtKWlIajWJMPIxHPQqvImU4WL8CrfBlFD8+aQ4+5l8Rd4Zbvn7uHIKKjuI0QB1FmOPvccG1eih9VisP+YTnglul7WKKXVoHS3fY2jwNOxxG2eYPTmwSVs/iQ0fDBTZ/eO3Z0o6GDb96FuWEhioCCQPnO7eKmhK66UaJN0Sb+LIR+8anMIw8reqsK/F/rz2D4+IsNeEN1eXXih00INFWVu8v2soOXm51zsEqhx03dQ7+lhiNww+4jKgb5yh9tihJZ8A6zd+3KfcOHnW+Wr15IiDPSkt02Jz5yVxxQYfTy2MSSSOHVjjKgvcwlG5 lilbro
+        user: devops
 
 - name: Prepare webservers
   hosts: tag_Name_webserver
