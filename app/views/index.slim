@@ -5,3 +5,5 @@ h3 Hello from Nürnberg
 
 - if (`uname -a` =~ /boot2docker/)
   h4 style="color: black" Container ID: #{ENV['HOSTNAME']}
+- else
+  h4 style="color: black" Host ip: #{`hostname -f`}

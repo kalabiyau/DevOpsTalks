@@ -2,7 +2,7 @@ lock '3.2.1'
 
 set :application, 'susecon14'
 set :repo_url, 'https://github.com/kalabiyau/SUSECon14.git'
-set :deploy_to, '/home/susecon14/apps'
+set :deploy_to, '/home/devops/apps'
 set :linked_dirs, %w{ tmp/pids tmp/sockets log }
 set :log_level, :info
 
