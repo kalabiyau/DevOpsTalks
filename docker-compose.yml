@@ -1,0 +1,14 @@
+web:
+  build: .
+#  ports:
+#    - "80:3000"
+  environment:
+    - VIRTUAL_HOST=192.168.59.103
+
+balancer:
+  image: jwilder/nginx-proxy
+  volumes:
+    - "/var/run/docker.sock:/tmp/docker.sock"
+    - "~/DockerData/balancer/nginx.conf:/etc/nginx/nginx.conf"
+  ports:
+    - "80:80"

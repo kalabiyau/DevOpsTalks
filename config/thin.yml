@@ -1,7 +1,6 @@
 pid: tmp/pids/thin.pid
 timeout: 30
 wait: 30
-log: log/thin.log
 max_conns: 1024
 require: []
 environment: production
@@ -10,4 +9,4 @@ servers: 1
 onebyone: true
 threaded: true
 no-epoll: true
-daemonize: true
+daemonize: false

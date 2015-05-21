@@ -1,0 +1,6 @@
+docker
+Capfile
+ansible
+Gemfile*
+Dockerfile
+docker-compose.yml

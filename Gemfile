@@ -5,7 +5,10 @@ gem 'sinatra', '~> 1.4.5'
 gem 'slim'
 gem 'thin'
 
-# Deployement
-gem 'capistrano'
-gem 'capistrano-bundler'
+# Deployment
+group :development do
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+end
+
 
