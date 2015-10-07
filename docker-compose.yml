@@ -1,7 +1,7 @@
 web:
   build: .
   environment:
-    - VIRTUAL_HOST=192.168.59.103
+    - VIRTUAL_HOST=192.168.99.100
 
 balancer:
   image: jwilder/nginx-proxy

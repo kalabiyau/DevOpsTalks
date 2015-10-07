@@ -1,4 +1,4 @@
-FROM scc/sles12_base
+FROM registry.scc.suse.de/sles12_base
 
 RUN zypper --non-interactive --gpg-auto-import-keys ar \
  http://clouddata.cloud.suse.de/repos/SLES12-GA-Pool/ sles12ga
